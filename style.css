@@ -9,5 +9,59 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
+}
+
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    background: #2d2d2d;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.calculator-row {
+    height: 48px;
+    width: 200px;
+    display: flex;
+    gap: 4px;
+}
+
+output {
+    background: #565656;
+    color: #fff;
+    font-size: 22px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    letter-spacing: 1.05px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+
+button {
+    border-radius: 5px;
+    border: transparent;
+}
+
+.number-btn,
+.operator-btn,
+#clear {
+    flex: 1;
+    font-size: 16px;
+}
+
+.operator-btn {
+    max-width: 48px;
+    background-color: rgb(255, 119, 0);
+    border: 1px solid rgb(220, 106, 7);
 }
