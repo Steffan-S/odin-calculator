@@ -1,23 +1,27 @@
 function add(num1, num2) {
-    return Number(num1) + Number(num2);
+    let sum = Number(num1) + Number(num2);
+    sum = Math.round(sum * 100) / 100
+    return sum.toString();
 };
 
 function subtract(num1, num2) {
-	return num1 - num2;
+	let sum = Number(num1) - Number(num2);
+    sum = Math.round(sum * 100) / 100
+    return sum.toString();
 };
 
 function multiply(num1, num2) {
-	return num1 * num2;
+	let sum = Number(num1) * Number(num2);
+    sum = Math.round(sum * 100) / 100
+    return sum.toString();
 };
 
 function divide(num1, num2) {
-	return num1 / num2;
+	let sum = Number(num1) / Number(num2);
+    sum = Math.round(sum * 100) / 100
+    return sum.toString();
 };
 
-// console.log(add(10, 10) + ' add');
-// console.log(subtract(10, 5) + ' subtract');
-// console.log(multiply(5, 5) + ' multiply');
-// console.log(divide(8, 2) + ' divide');
 
 let firstNumber = '';
 let secondNumber = '';
@@ -86,18 +90,21 @@ const displayNumber1 = document.querySelector('#displaynum1');
 function displayNum1 (num1){
     displayNumber1.textContent = '';
     displayNumber1.textContent = num1;
-    // displayNumber1.append(num1);
+    displayValue.textContent = '';
 }
 
 const displayNumber2 = document.querySelector('#displaynum2');
 function displayNum2 (num2){
     displayNumber2.textContent = '';
     displayNumber2.textContent = num2;
+    displayValue.textContent = '';
 }
 
 const displayOperator = document.querySelector('#displayoperator');
 function displayOpe (operator){
-    displayOperator.append(operator);
+    displayOperator.textContent = '';
+    displayOperator.textContent = operator;
+    displayValue.textContent = '';
 }
 
 const displayValue = document.getElementById('displayvalue');
@@ -120,6 +127,7 @@ calculateButton.addEventListener('click', function() {
     secondNumber = '';
     operator = '';
 
+
     displayNum1(firstNumber);
     displayNum2(secondNumber);
     displayOpe(operator);
@@ -134,20 +142,18 @@ calculateButton.addEventListener('click', function() {
 
 // clear button
 const clearButton = document.getElementById('clear');
-const outputScreen = document.getElementById('output');
 
 clearButton.addEventListener('click', function() {
     // Clears all previous appended content
-    firstNumber = Number();
-    secondNumber = Number();
+    firstNumber = '';
+    secondNumber = '';
     operator = '';
+    operatorResult = '';
     
-    outputScreen.textContent = '';
-    
-    console.log('clear button clicked');
-    console.log(firstNumber);
-    console.log(secondNumber);
-    console.log(operator);
+    displayValue.textContent = '';
+    displayNumber1.textContent = '';
+    displayNumber2.textContent = '';
+    displayOperator.textContent = '';
 });
 
 
