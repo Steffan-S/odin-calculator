@@ -54,13 +54,13 @@ button {
 }
 
 .number-btn,
-.operator-btn,
+.orange,
 #clear {
     flex: 1;
     font-size: 16px;
 }
 
-.operator-btn {
+.orange {
     max-width: 48px;
     background-color: rgb(255, 119, 0);
     border: 1px solid rgb(220, 106, 7);
