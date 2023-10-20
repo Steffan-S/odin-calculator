@@ -1,25 +1,18 @@
+// calculate functions
 function add(num1, num2) {
-    let sum = Number(num1) + Number(num2);
-    sum = Math.round(sum * 100) / 100
-    return sum.toString();
+    return (Math.round((Number(num1) + Number(num2)) * 100) / 100).toString();
 };
 
 function subtract(num1, num2) {
-	let sum = Number(num1) - Number(num2);
-    sum = Math.round(sum * 100) / 100
-    return sum.toString();
+	return (Math.round((Number(num1) - Number(num2)) * 100) / 100).toString();
 };
 
 function multiply(num1, num2) {
-	let sum = Number(num1) * Number(num2);
-    sum = Math.round(sum * 100) / 100
-    return sum.toString();
+	return (Math.round((Number(num1) * Number(num2)) * 100) / 100).toString();
 };
 
 function divide(num1, num2) {
-	let sum = Number(num1) / Number(num2);
-    sum = Math.round(sum * 100) / 100
-    return sum.toString();
+	return (Math.round((Number(num1) / Number(num2)) * 100) / 100).toString();
 };
 
 
@@ -27,23 +20,23 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 let operatorResult // display value
-
+const errorMessage = 'ERROR :('
 
 
 function operate(firstNum, operator, secondNum){
     if (operator === '+'){
         operatorResult = add(firstNum, secondNum);
-        console.log('Add function');
     } else if (operator === '-'){
         operatorResult = subtract(firstNum, secondNum);
-        console.log('Subtract function');
     } else if (operator === '*'){
         operatorResult = multiply(firstNum, secondNum);
-        console.log('Multiply function');
     } else if (operator === '/'){
+        if (secondNum === '0'){
+            operatorResult = "Can't do that!";  
+        } else {
         operatorResult = divide(firstNum, secondNum);
-        console.log('Divide function');
-    }
+        }
+    } 
     return operatorResult
 }
 
@@ -58,13 +51,11 @@ for (button of numberButtons) {
         if (operator === '*' || operator === '+' || operator === '-' || operator === '/'){
             // secondNumber = Number(numButtonInputValue);
             secondNumber += numButtonInputValue;
-            console.log('added ' + numButtonInputValue + ' too 2nd number')
             displayNum2(secondNumber);
         } else {
             // firstNumber = Number(numButtonInputValue);
             firstNumber += numButtonInputValue;
             displayNum1(firstNumber);
-            console.log(firstNumber + ' first num var');
         }
     })
 };
@@ -75,11 +66,9 @@ let operatorButton = document.getElementsByClassName('operator-btn');
 for (button of operatorButton) {
     button.addEventListener('click', function(){
         const operatorButtonInputValue = this.value; // Get current operator button value
-        console.log('operator button clicked');
 
         if (operator.length == 0){
             operator = operatorButtonInputValue;
-            console.log(operator + ' operator added')
             displayOpe(operator);
         }
     })
@@ -109,20 +98,29 @@ function displayOpe (operator){
 
 const displayValue = document.getElementById('displayvalue');
 
-// displaying on load
-displayNum1(firstNumber);
-displayNum2(secondNumber);
-displayOpe(operator);
-
-
 // calculate function (= button)
 const calculateButton = document.getElementById('result');
 
-calculateButton.addEventListener('click', function() {
+calculateButton.addEventListener('click', function() {    
+    
+
+    if (operate === '' || secondNumber === ''){
+        clearNumbers();
+        displayValue.textContent = errorMessage;
+    } else {
     operate(firstNumber, operator, secondNumber);
-    console.log(operatorResult + ' display value');
 
     // clears sum
+    clearNumbers();
+
+    // Clears previous appended content
+    displayValue.textContent = '';
+    firstNumber = operatorResult;
+    displayNumber1.textContent = firstNumber;
+    }
+});
+
+function clearNumbers (){
     firstNumber = '';
     secondNumber = '';
     operator = '';
@@ -131,20 +129,14 @@ calculateButton.addEventListener('click', function() {
     displayNum1(firstNumber);
     displayNum2(secondNumber);
     displayOpe(operator);
-
-    // Clears previous appended content
-    displayValue.textContent = '';
-    firstNumber = operatorResult;
-    console.log(firstNumber);
-    displayNumber1.textContent = firstNumber;
-});
+};
 
 
 // clear button
 const clearButton = document.getElementById('clear');
 
 clearButton.addEventListener('click', function() {
-    // Clears all previous appended content
+    // Clears all previous (appended) content
     firstNumber = '';
     secondNumber = '';
     operator = '';
