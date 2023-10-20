@@ -83,7 +83,7 @@ for (button of operatorButton) {
             displayOpe(operator);
         }
     })
-}
+};
 
 // Displaying numbers
 const displayNumber1 = document.querySelector('#displaynum1');
@@ -91,21 +91,21 @@ function displayNum1 (num1){
     displayNumber1.textContent = '';
     displayNumber1.textContent = num1;
     displayValue.textContent = '';
-}
+};
 
 const displayNumber2 = document.querySelector('#displaynum2');
 function displayNum2 (num2){
     displayNumber2.textContent = '';
     displayNumber2.textContent = num2;
     displayValue.textContent = '';
-}
+};
 
 const displayOperator = document.querySelector('#displayoperator');
 function displayOpe (operator){
     displayOperator.textContent = '';
     displayOperator.textContent = operator;
     displayValue.textContent = '';
-}
+};
 
 const displayValue = document.getElementById('displayvalue');
 
@@ -134,9 +134,9 @@ calculateButton.addEventListener('click', function() {
 
     // Clears previous appended content
     displayValue.textContent = '';
-    displayValue.textContent = operatorResult;
-
-    console.log(typeof operatorResult);
+    firstNumber = operatorResult;
+    console.log(firstNumber);
+    displayNumber1.textContent = firstNumber;
 });
 
 
