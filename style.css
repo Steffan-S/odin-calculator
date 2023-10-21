@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'inter', Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -19,7 +21,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     gap: 4px;
-    background: #2d2d2d;
+    background: #312C29;
     padding: 10px;
     margin-top: 30px;
     border-radius: 8px;
@@ -33,23 +35,28 @@ body {
 }
 
 output {
-    background: #565656;
-    color: #fff;
-    font-size: 22px;
+    background: #26221f;
+    color: #F2AF2F;
+    font-size: 16px;
     flex: 1;
-    text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     font-weight: 700;
-    letter-spacing: 1.05px;
     border: none;
     border-radius: 5px;
+    padding: 10px;
     margin-bottom: 4px;
+}
+
+#displayoperator {
+    font-size: 14px;
 }
 
 button {
     border-radius: 5px;
+    background: transparent;
+    color: #fff;
     border: transparent;
 }
 
@@ -57,11 +64,26 @@ button {
 .orange,
 #clear {
     flex: 1;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.3 ease;
 }
+
+.number-btn:hover,
+#clear:hover {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 400;
+    background: #26221f;
+}
+
 
 .orange {
     max-width: 48px;
-    background-color: rgb(255, 119, 0);
-    border: 1px solid rgb(220, 106, 7);
+    background-color: #F2AF2F;
+    border: 1px solid transparent;
+}
+
+.orange:hover {
+    background-color: #ffbf48;
 }
